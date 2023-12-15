@@ -21,7 +21,7 @@ class Format:
             },
         }
 
-    CATEGORY = "Zuellni/Text"
+    CATEGORY = "komojini/Text"
     FUNCTION = "process"
     RETURN_TYPES = ("STRING",)
 
