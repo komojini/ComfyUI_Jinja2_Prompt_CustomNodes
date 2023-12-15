@@ -30,12 +30,29 @@ class PromptWithTemplate:
             text = text.replace(key, value)
 
         return (text,)
+
+
+class ObjectPromptWithTemplate(PromptWithTemplate):
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "text": ("STRING", {"default": "", "multiline": True}),
+            },
+            "optional": {
+                "instance_prompt": ("STRING", {"default": ""}),
+                "class_prompt": ("STRING", {"default": ""}),
+                "gender_prompt": ("STRING", {"default": ""}),
+            },
+        }
     
 
 NODE_CLASS_MAPPINGS = {
-    "PromptWithTemplate": PromptWithTemplate
+    "PromptWithTemplate": PromptWithTemplate,
+    "ObjectPromptWithTemplate": ObjectPromptWithTemplate,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "PromptWithTemplate": "Prompt with Template"
+    "PromptWithTemplate": "Prompt with Template",
+    "ObjectPromptWithTemplate": "Object Prompt Template"
 }
