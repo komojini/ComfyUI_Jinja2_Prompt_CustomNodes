@@ -5,7 +5,7 @@ import comfy.utils
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "comfy"))
 
-class Format:
+class PromptWithTemplate:
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -30,3 +30,12 @@ class Format:
             text = text.replace(key, value)
 
         return (text,)
+    
+
+NODE_CLASS_MAPPINGS = {
+    "PromptWithTemplate": PromptWithTemplate
+}
+
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "PromptWithTemplate": "Prompt with Template"
+}
